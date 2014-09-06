@@ -58,5 +58,10 @@ app.use(function(err, req, res, next) {
     });
 });
 
+app.io.on('connection', function (socket) {
+    setInterval(function () {
+        socket.emit("rawr", { rawr: "rawr" });
+    }, 2000);
+});
 
 module.exports = app;
