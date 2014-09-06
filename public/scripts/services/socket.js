@@ -8,6 +8,6 @@
  * Factory in the krankinwagonApp.
  */
 angular.module('krankinwagonApp')
-  .factory('socket', function (socketFactory) {
+  .factory('angSocket', function (socketFactory) {
     return socketFactory();
   });

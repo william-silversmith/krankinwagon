@@ -8,14 +8,14 @@
  * Controller of the krankinwagonApp
  */
 angular.module('krankinwagonApp')
-  .controller('MainCtrl', function ($scope, socket) {
-  	$scope.button = function () {
-  		socket.emit('button', 'testMessage', function(){
-  			console.log('testMessage has emitted');
-  		});
-  	}
-    socket.forward('rawr');
-  	$scope.$on('socket:rawr', function (ev, data) {
+  .controller('MainCtrl', function ($scope, angSocket) {
+    angSocket.forward('complete');
+    $scope.button = function () {
+      console.log('button');
+      var mess = {rawr : "test"}
+      angSocket.emit('lever', mess);
+    }
+  	$scope.$on('socket:complete', function (ev, data) {
       $scope.test = data;
   	});
     $scope.awesomeThings = [
