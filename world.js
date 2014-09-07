@@ -153,6 +153,8 @@ function World () {
 		_this.state.players = players;
 		_this.state.outstanding = outstanding;
 
+		debug.timestamp = new Date();
+
 		_this.broadcast('debug', debug);
 	}, 250);
 }
