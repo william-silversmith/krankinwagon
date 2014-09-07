@@ -136,6 +136,12 @@ ol, ul
     user-select: none !important;
 }
 
+#gamestate {
+    float: right;
+    width: 700px;
+    font-family: monospace;
+}
+
 /*
 .button {
     display: inline-block;

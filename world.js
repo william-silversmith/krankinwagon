@@ -22,7 +22,7 @@ function World () {
 
 			MINPLAYERS: 1,
 			CONTROLS_PER_PLAYER: 4,
-			COMMAND_TTL: 8000,
+			COMMAND_TTL: 80000,
 
 			HEALTH_TIMEOUT_PENALTY: -10,
 			HEALTH_BONUS: 5,
@@ -143,6 +143,18 @@ function World () {
 			player.setControls(player_controls);
 		});
 	}
+
+	setInterval(function () {
+		var players = _this.state.players;
+		_this.state.players = Object.keys(players);
+		var outstanding = _this.state.outstanding;
+		_this.state.outstanding = Object.keys(outstanding);
+		var debug = Utils.clone(_this.state);
+		_this.state.players = players;
+		_this.state.outstanding = outstanding;
+
+		_this.broadcast('debug', debug);
+	}, 250);
 }
 
 module.exports = World;

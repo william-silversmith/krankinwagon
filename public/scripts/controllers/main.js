@@ -50,11 +50,11 @@ angular.module('krankinwagonApp')
     angSocket.forward('alert');
     $scope.$on('socket:alert', function (ev, data) {
       flash.error = data.text;
-      console.log(data);
     });
 
     function runTimer() {
       $interval(function () {
+        console.log($scope.timeLeft);
         if ($scope.timeLeft > 0) {
             $scope.timeLeft = $scope.timeLeft - 50;
         }
@@ -73,6 +73,11 @@ angular.module('krankinwagonApp')
     angSocket.forward('connected');
     $scope.$on('socket:connected', function (ev, data) {
       $scope.connected = data;
+    });
+
+    angSocket.forward('debug');
+    $scope.$on('socket:debug', function (ev, data) {
+      $scope.game_state = JSON.stringify(data, undefined, 2);
     });
   });
 

@@ -82,6 +82,7 @@ function Player (args) {
 		});
 
 		var random_command_id = Utils.random_choice(Object.keys(controls));
+		console.log(random_command_id);
 		_this.world.state.outstanding[random_command_id] = _this;
 
 		if (!controls[random_command_id]) {
