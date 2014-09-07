@@ -1,12 +1,20 @@
+<div id="pageWrapper">
+        <div id="userSection">
+            <div ng-click="startSession()" id="userPicture"></div>
+            <div id="userCommand">{{instruction}}</div>
+            <div ng-style="{'width':(timeLeft / 50) +'%'}" id="userTimeLeft"></div>
+        </div>
+        <div id="actionSection">
+            <div ng-repeat="control in controls" class="action actionSmall" ng-click="fireAction(control)">
+                <div class="actionDescription">{{control.label}}</div>
+                <!--<div class="actionSwitch">
+                    <span class="button btnOn">ON</span><span class="button btnOff">OFF</span>
+                </div>-->
+            </div>
+        </div>
+    </div>
 <!-- Subscribe to error flash messages. -->
 <div flash-alert="error" active-class="in" class="alert fade">
     <strong class="alert-heading">Boo!</strong>
     <span class="alert-message">{{flash.message}}</span>
-</div>
-<h1>Hello</h1>
-<p>{{health}}</p>
-<button ng-click="stopSession()"></button>
-<h3>{{timeLeft}}</h3>
-<div class="hero">
-  <h1 ng-repeat="control in controls">{{control.label}}</h1>
 </div>

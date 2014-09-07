@@ -11,21 +11,22 @@ angular.module('krankinwagonApp')
   .controller('MainCtrl', function ($scope, angSocket, $interval, flash) {
     $scope.command = {};
     $scope.health = 100;
-    $scope.timeLeft = 100;
+    $scope.timeLeft = 5000;
     $scope.controls = [];
 
     angSocket.forward('command');
     $scope.$on('socket:command', function (ev, data){
-      $scope.command = data.text;
+      console.log(data);
+      $scope.instruction = data.text;
       $scope.timeLeft = data.ttl;
     });
 
-    $scope.toggleControl = function (id) {
+    $scope.fireAction = function (control) {
       var controlEvent = {
-        id: id,
+        id: control.id,
         value: true
       };
-      angSocket.emit('control', controlEvent);
+      angSocket.emit('player-action', controlEvent);
     }
 
     angSocket.forward('set-controls');
@@ -48,14 +49,17 @@ angular.module('krankinwagonApp')
       console.log(data);
     });
 
-    $interval(function () {
-      if ($scope.timeLeft > 0) {
-          $scope.timeLeft--;
-      }
-    }, 100);
+    function runTimer() {
+      $interval(function () {
+        if ($scope.timeLeft > 0) {
+            $scope.timeLeft = $scope.timeLeft - 50;
+        }
+      }, 50);
+    }
 
-    $scope.stopSession = function() {
+    $scope.startSession = function() {
       angSocket.emit('lifecycle', 'start');
+      runTimer();
     }
 
     angSocket.forward('health');

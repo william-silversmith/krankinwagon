@@ -18,8 +18,8 @@ function World () {
 			controls: JSON.parse(fs.readFileSync('./controls.json', { encoding: 'utf8' })),
 			outstanding: {},
 
-			MINPLAYERS: 2,
-			CONTROLS_PER_PLAYER: 6,
+			MINPLAYERS: 1,
+			CONTROLS_PER_PLAYER: 4,
 			COMMAND_TTL: 5000,
 
 			HEALTH_TIMEOUT_PENALTY: -10,
