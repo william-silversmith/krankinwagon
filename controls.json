@@ -1,7 +1,7 @@
 {
 	"unified": {
 		"dna_translation": {
-            "label": "Translate DNA",
+            "label": "DNA Translation",
             "instructions": [
             	"Produce mRNA for membrane proteins, start DNA transcription.",
                 "mRNA quantity achieved, stop DNA transcription."
@@ -9,14 +9,14 @@
         },
 
 		"dna_transcription": {
-            "label": "Transcribe DNA",
+            "label": "DNA Transcription",
             "instructions": [
             	"Need to generate more neurotransmitter proteins from mRNA, start DNA translation.",
                 "Sufficient neurotransmitter proteins present, stop DNA translation."
             ]
         },
 		"membrane_diffusion": {
-            "label": "Membrane diffusion",
+            "label": "Membrane Diffusion",
             "instructions": [
                 "Chlorine ion gradient ready, allow diffusion.",
                 "-90mV resting potential achieved over membrane , disable diffusion."
@@ -24,7 +24,7 @@
         },
 
 		"active_ion_channel": {
-            "label": "Activate Ion Channel",
+            "label": "Ion Channel",
             "instructions": [
                 "Need Potassium ions, engage active ion channel.",
                 "Ion gradient achieved, disable active ion channel."
@@ -64,7 +64,7 @@
 			]
         },
 		"mitosis": {
-            "label": "Mitosis Start",
+            "label": "Mitosis",
             "instructions": [
             	"Hormonal signals for neurogenesis received, engage mitotic process."
             ]
@@ -96,7 +96,7 @@
             ]
         },
         "chemoreceptors": {
-            "label": "Activate Chemoreceptors",
+            "label": "Chemoreceptors",
             "instructions": [
             	"Olfactory signal inbound, activate chemoreceptors."
             ]
