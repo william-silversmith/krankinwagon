@@ -9,19 +9,25 @@
  */
 angular.module('krankinwagonApp')
   .controller('MainCtrl', function ($scope, angSocket) {
-    angSocket.forward('complete');
-    $scope.button = function () {
-      console.log('button');
-      var mess = {rawr : "test"}
-      angSocket.emit('lever', mess);
+    $scope.command = {};
+    $scope.health = 100;
+    $scope.$on('socket:command', function (ev, data){
+      $scope.command = data;
+    });
+    $scope.toggleControl = function (id) {
+      var controlEvent = {
+        id: id,
+        value: true
+      }
+      angSocket.emit('control', controlEvent);
     }
-  	$scope.$on('socket:complete', function (ev, data) {
-      $scope.test = data;
-  	});
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
+    $scope.$on('socket:lifecycle', function (ev, data) {
+      $scope.lifecycle = data;
+    });
+    $scope.stopSession = function() {
+      angSocket.emit('lifecycle', 'stop');
+    }
+    $scope.$on('socket:health', function (ev, data) {
+      $scope.health = data;
+    });
   });
