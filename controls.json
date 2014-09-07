@@ -1,0 +1,22 @@
+{
+	"unified": {
+		"dna_translation": "Translate DNA",
+		"dna_transcription": "Transcribe DNA",
+		"rna_translation": "Translate RNA",
+		"rna_transcription": "Transcribe RNA",
+		"increase_fluid_intake": "Increase Fluid Intake",
+		"decrease_fluid_intake": "Decrease Fluid Intake",
+		"active_ion_channel": "Activate Ion Channel",
+		"deactive_ion_channel": "Deactivate Ion Channel",
+		"create_vesicle": "Create Vesicle",
+		"activate_krebs_cycle": "Activate Krebs Cycle",
+		"release_lysosomes": "Release Lysosomes",
+		"spike_neuron": "Spike Neuron",
+		"inhibit_neuron": "Inhibit Neuron",
+		"mitosis_on": "Mitosis On",
+		"mitosis_off": "Mitosis Off",
+		"glucose_pump_on": "Glucose Pump On",
+		"glucose_pump_off": "Glucose Pump Off",
+		"activate_chemoreceptors": "Activate Chemoreceptors"
+	}
+}
