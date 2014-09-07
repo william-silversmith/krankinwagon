@@ -44,11 +44,11 @@ function World () {
 			world: _this,
 		});
 
-		var ip = socket.handshake.address.address;
-		_this.state.players[ip] = player;
+		var id = player.id;
+		_this.state.players[id] = player;
 
 		socket.on('disconnect', function () {
-			delete _this.state.players[ip];
+			delete _this.state.players[id];
 			_this.broadcast('connected', _this.numPlayersOnline());
 			_this.endGame();
 		});
@@ -94,7 +94,7 @@ function World () {
 		_this.state = resetState();
 		_this.state.players = players;
 
-		Utils.forEach(players, function (ip, player) {
+		Utils.forEach(players, function (id, player) {
 			player.resetPlayerCommandState();
 		});
 
@@ -104,7 +104,7 @@ function World () {
 	};
 
 	_this.broadcast = function (evt, payload) {
-		Utils.forEach(_this.state.players, function (ip, player) {
+		Utils.forEach(_this.state.players, function (id, player) {
 			player.send(evt, payload);
 		});
 	};
@@ -114,7 +114,7 @@ function World () {
 	};
 
 	function issueInitialCommands () {
-		Utils.forEach(_this.state.players, function (ip, player) {
+		Utils.forEach(_this.state.players, function (id, player) {
 			player.issueRandomCommand();
 		});
 	};
@@ -125,7 +125,7 @@ function World () {
 
 		_this.state.assigned_controls = {};
 		// Randomly assign controls
-		Utils.forEach(_this.state.players, function (ip, player) {
+		Utils.forEach(_this.state.players, function (id, player) {
 
 			var player_controls = {};
 			for (var ct = 0; ct < _this.state.CONTROLS_PER_PLAYER; ct++) {
