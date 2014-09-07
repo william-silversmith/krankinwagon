@@ -79,6 +79,9 @@ angular.module('krankinwagonApp')
     $scope.$on('socket:debug', function (ev, data) {
       $scope.game_state = JSON.stringify(data, undefined, 2);
     });
-  });
 
+    $scope.$on("$destroy", function () {
+        angSocket.disconnect();
+    });
+  });
 })();
