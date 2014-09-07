@@ -12,7 +12,7 @@ angular.module('krankinwagonApp')
     $scope.command = {};
     $scope.health = 100;
     $scope.timeLeft = 100;
-    $scope.controls = [];
+    $scope.controls = {};
 
     angSocket.forward('command');
     $scope.$on('socket:command', function (ev, data){
