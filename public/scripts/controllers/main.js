@@ -12,10 +12,6 @@
 
 angular.module('krankinwagonApp')
   .controller('MainCtrl', function ($scope, angSocket, $interval, flash, $timeout) {
-    $scope.command = {};
-    $scope.health = 50;
-    $scope.timeLeft = 5000;
-    $scope.controls = [];
 
     $scope.$watch('health', function () {
       if ($scope.health >= 100) {
@@ -25,17 +21,19 @@ angular.module('krankinwagonApp')
       }
     });
 
+    var hinttimer_promise;
     angSocket.forward('command');
     $scope.$on('socket:command', function (ev, data){
       console.log(data);
       $scope.instruction = '';
       var command = data.text.split(', ');
       $scope.reason = command[0];
-      $timeout(function () {
-        $scope.instruction = command[1];
-      }, 1500);
       $scope.timeLeft = data.ttl;
       $scope.totalTTL = data.ttl;
+
+      hinttimer_promise = $timeout(function () {
+        $scope.instruction = command[1];
+      }, $scope.totalTTL / 2);
     });
 
     angSocket.forward('player-action-response');
@@ -66,8 +64,11 @@ angular.module('krankinwagonApp')
     angSocket.forward('lifecycle');
     $scope.$on('socket:lifecycle', function (ev, data) {
       $scope.lifecycle = data;
-      if (data == 'start') {
+      if (data === 'start') {
         runTimer();
+      }
+      else if (data === 'stop') {
+        resetGame();
       }
     });
 
@@ -76,14 +77,6 @@ angular.module('krankinwagonApp')
       flash.error = data.text;
       console.log(data);
     });
-
-    function runTimer() {
-      $interval(function () {
-        if ($scope.timeLeft > 0) {
-            $scope.timeLeft = $scope.timeLeft - 50;
-        }
-      }, 50);
-    }
 
     $scope.startSession = function() {
       angSocket.emit('lifecycle', 'start');
@@ -98,6 +91,36 @@ angular.module('krankinwagonApp')
     $scope.$on('socket:connected', function (ev, data) {
       $scope.connected = data;
     });
+
+    var runtimer_promise;
+    function runTimer() {
+      runtimer_promise = $interval(function () {
+        if ($scope.timeLeft > 0) {
+            $scope.timeLeft = $scope.timeLeft - 50;
+        }
+      }, 50);
+    }
+
+    function resetGame () {
+      if (runtimer_promise) { 
+        $interval.cancel(runtimer_promise);
+      }
+      if (hinttimer_promise) {
+        $timeout.cancel(hinttimer_promise); 
+      }
+
+      $scope.command = {};
+      $scope.health = 50;
+      $scope.timeLeft = $scope.totalTTL;
+      $scope.controls = [];
+
+      $scope.instruction = "";
+      $scope.reason = "";
+    }
+
+    (function init () {
+      resetGame();  
+    })();
   });
 
 })();
