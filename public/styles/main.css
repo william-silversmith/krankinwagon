@@ -61,8 +61,15 @@ ol, ul
 #userCommand {
     height: 95px;
     color: #ccc;
-    padding: 8px;
     font-size: 18px;
+    line-height: 95px;
+    text-align: center;
+}
+
+.commandText {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 #userTimeLeft {
@@ -80,6 +87,9 @@ ol, ul
     border-top: 1px solid #cccccc;
     float: right;
     height: 182px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .action:active {
@@ -98,9 +108,7 @@ ol, ul
 }
 
 .actionDescription {
-    height: 50px;
     text-align: center;
-    margin-top: 60px;
     color: #cccccc;
 }
 
