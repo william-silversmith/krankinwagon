@@ -107,6 +107,7 @@ function World () {
 		var keys = Object.keys(controls);
 
 		// Randomly assign controls
+		console.log(_this.state.players);
 		Utils.forEach(_this.state.players, function (ip, player) {
 
 			var player_controls = {};
