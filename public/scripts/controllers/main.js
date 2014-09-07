@@ -39,7 +39,7 @@ angular.module('krankinwagonApp')
     $scope.$on('socket:lifecycle', function (ev, data) {
       $scope.lifecycle = data;
       if (data == 'start') {
-        $scope.health = 100;
+        runTimer();
       }
     });
 
@@ -59,7 +59,6 @@ angular.module('krankinwagonApp')
 
     $scope.startSession = function() {
       angSocket.emit('lifecycle', 'start');
-      runTimer();
     }
 
     angSocket.forward('health');
