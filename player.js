@@ -16,11 +16,21 @@ function Player (args) {
 	_this.state = resetState();
 
 	_this.socket.on('lifecycle', function (stage) {
+		var ok;
+		var text;
 		if (stage === 'start') {
-			_this.world.startGame();
+			ok = _this.world.startGame();
+			text = "Game already in progress.";
 		}
 		else if (stage === 'stop') {
-			_this.world.endGame();
+			ok = _this.world.endGame();
+			text = "The game was already stopped.";
+		}
+
+		if (!ok) {
+			_this.send('alert', {
+				text: text,
+			});
 		}
 	});
 
@@ -73,6 +83,12 @@ function Player (args) {
 
 		var random_command_id = Utils.random_choice(Object.keys(controls));
 		_this.world.state.outstanding[random_command_id] = _this;
+
+		if (!controls[random_command_id]) {
+			console.error(controls);
+			console.error(random_command_id);
+			return;
+		}
 
 		var instruction = Utils.random_choice(controls[random_command_id].instructions);
 

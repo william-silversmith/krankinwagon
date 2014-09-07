@@ -22,7 +22,7 @@ function World () {
 
 			MINPLAYERS: 1,
 			CONTROLS_PER_PLAYER: 4,
-			COMMAND_TTL: 5000,
+			COMMAND_TTL: 8000,
 
 			HEALTH_TIMEOUT_PENALTY: -10,
 			HEALTH_BONUS: 5,
@@ -57,7 +57,7 @@ function World () {
 	_this.startGame = function () {
 		if (_this.state.session === 'start') {
 			console.log("Game was already started.");
-			return;
+			return false;
 		}
 
 		var num_players = _this.numPlayersOnline();
@@ -80,12 +80,14 @@ function World () {
 		setTimeout(function () {
 			_this.endGame();
 		}, 30000);
+
+		return true;
 	};
 
 	_this.endGame = function () {
 		if (_this.state.session === 'end') {
 			console.log("Game was already ended.");
-			return;
+			return false;
 		}
 
 		var players = _this.state.players;
@@ -97,6 +99,8 @@ function World () {
 		});
 
 		_this.broadcast('lifecycle', 'stop');
+
+		return true;
 	};
 
 	_this.broadcast = function (evt, payload) {

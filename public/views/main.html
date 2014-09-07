@@ -1,13 +1,13 @@
-<div id="pageWrapper">
+<div id="pageWrapper" class='untouchable'>
         <div id="userSection">
             <div ng-click="startSession()" id="userPicture"></div>
             <div id="userCommand">{{instruction}}</div>
             <div id="health">Health: {{health}}</div>
             <div id="connected">Online: {{connected}}</div>
-            <div ng-style="{'width':(timeLeft / 50) +'%'}" id="userTimeLeft"></div>
+            <div ng-style="{'width':(timeLeft / totalTTL * 100) +'%'}" id="userTimeLeft"></div>
         </div>
         <div id="actionSection">
-            <div ng-repeat="control in controls" class="action actionSmall" ng-click="fireAction(control)">
+            <div ng-repeat="control in controls" class="untouchable action actionSmall" ng-click="fireAction(control)">
                 <div class="actionDescription">{{control.label}}</div>
                 <!--<div class="actionSwitch">
                     <span class="button btnOn">ON</span><span class="button btnOff">OFF</span>

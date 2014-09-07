@@ -7,6 +7,9 @@
  * # MainCtrl
  * Controller of the krankinwagonApp
  */
+
+(function (undefined) {
+
 angular.module('krankinwagonApp')
   .controller('MainCtrl', function ($scope, angSocket, $interval, flash) {
     $scope.command = {};
@@ -19,6 +22,7 @@ angular.module('krankinwagonApp')
       console.log(data);
       $scope.instruction = data.text;
       $scope.timeLeft = data.ttl;
+      $scope.totalTTL = data.ttl;
     });
 
     $scope.fireAction = function (control) {
@@ -71,3 +75,5 @@ angular.module('krankinwagonApp')
       $scope.connected = data;
     });
   });
+
+})();
