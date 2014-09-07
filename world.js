@@ -55,6 +55,10 @@ function World () {
 	};
 
 	_this.startGame = function () {
+		if (_this.state.session === 'start') {
+			return;
+		}
+
 		var num_players = _this.numPlayersOnline();
 		if (num_players < _this.state.MINPLAYERS) {
 			_this.broadcast('alert', { 
@@ -78,6 +82,10 @@ function World () {
 	};
 
 	_this.endGame = function () {
+		if (_this.state.session === 'end') {
+			return;
+		}
+
 		var players = _this.state.players;
 		_this.state = resetState();
 		_this.state.players = players;
