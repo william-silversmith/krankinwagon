@@ -34,6 +34,10 @@ angular.module('krankinwagonApp')
       $scope.timeLeft = data.ttl;
       $scope.totalTTL = data.ttl;
 
+      if (hinttimer_promise) {
+        $timeout.cancel(hinttimer_promise);
+      }
+
       hinttimer_promise = $timeout(function () {
         $scope.instruction = command[1];
       }, $scope.totalTTL / 2);
