@@ -40,6 +40,7 @@ angular.module('krankinwagonApp')
 
     angSocket.forward('player-action-response');
     $scope.$on('socket:player-action-response', function (ev, data) {
+      console.log(data);
       var feedback = data.status;
       if (feedback == 'correct') {
         new Audio('audio/correct.ogg').play();
