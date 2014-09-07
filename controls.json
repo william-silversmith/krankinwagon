@@ -1,76 +1,105 @@
 {
 	"unified": {
 		"dna_translation": {
-			"label": "Translate DNA",
-			"instructions": []
-		},
+            "label": "Translate DNA",
+            "instructions": [
+            	"Produce mRNA for membrane proteins, start DNA transcription.",
+                "mRNA quantity achieved, stop DNA transcription."
+            ]
+        },
+
 		"dna_transcription": {
-			"label": "Transcribe DNA",
-			"instructions": []
-		},
-		"rna_translation": {
-			"label": "Translate RNA",
-			"instructions": []
-		},
-		"rna_transcription": {
-				"label": "Transcribe RNA",
-				"instructions": []
-		},
-		"increase_fluid_intake": {
-				"label": "Increase Fluid Intake",
-				"instructions": []
-		},
-		"decrease_fluid_intake": {
-				"label": "Decrease Fluid Intake",
-				"instructions": []
-		},
+            "label": "Transcribe DNA",
+            "instructions": [
+            	"Need to generate more neurotransmitter proteins from mRNA, start DNA translation.",
+                "Sufficient neurotransmitter proteins present, stop DNA translation."
+            ]
+        },
+		"membrane_diffusion": {
+            "label": "Membrane diffusion",
+            "instructions": [
+                "Chlorine ion gradient ready, allow diffusion.",
+                "-90mV resting potential achieved over membrane , disable diffusion."
+            ]
+        },
+
 		"active_ion_channel": {
-				"label": "Activate Ion Channel",
-				"instructions": []
-		},
-		"deactive_ion_channel": {
-				"label": "Deactivate Ion Channel",
-				"instructions": []
-		},
+            "label": "Activate Ion Channel",
+            "instructions": [
+                "Need Potassium ions, engage active ion channel.",
+                "Ion gradient achieved, disable active ion channel."
+            ]
+        },
 		"create_vesicle": {
-				"label": "Create Vesicle",
-				"instructions": []
-		},
-		"activate_krebs_cycle": {
-				"label": "Activate Krebs Cycle",
-				"instructions": []
-		},
+            "label": "Create Vesicle",
+            "instructions": [
+            	"Synaptic vesicles needed to transport neurotransmitter, generate vesicles."
+            ]
+        },
 		"release_lysosomes": {
-				"label": "Release Lysosomes",
-				"instructions": []
-		},
+            "label": "Release Lysosomes",
+            "instructions": [
+            	"Undesired toxins in cytoplasm, release lysosomes."
+            ]
+        },
 		"spike_neuron": {
-				"label": "Spike Neuron",
-				"instructions": []
-		},
-		"inhibit_neuron": {
-				"label": "Inhibit Neuron",
-				"instructions": []
-		},
-		"mitosis_on": {
-				"label": "Mitosis On",
-				"instructions": []
-		},
-		"mitosis_off": {
-				"label": "Mitosis Off",
-				"instructions": []
-		},
-		"glucose_pump_on": {
-				"label": "Glucose Pump On",
-				"instructions": []
-		},
-		"glucose_pump_off": {
-				"label": "Glucose Pump Off",
-				"instructions": []
-		},
-		"activate_chemoreceptors": {
-				"label": "Activate Chemoreceptors",
-				"instructions": []
-		}
+            "label": "Spike Neuron",
+            "instructions": [
+            	"Synaptic signal received, fire the action potential!"
+            ]
+        },
+		"osmosis": {
+            "label": "Osmosis",
+            "instructions": [
+            	"Excess cytoplasmic water detected, allow osmosis",
+				"Dangerous concentration gradient, stop osmosis"
+            ]
+        },
+
+        "manage_ph": {
+            "label": "Manage ph",
+            "instructions": [
+            	"External carboxylic acid detected, increase internal ph.",
+				"Anaerobic xcess basic CO2 in cell, increase internal ph."
+			]
+        },
+		"mitosis": {
+            "label": "Mitosis Start",
+            "instructions": [
+            	"Hormonal signals for neurogenesis received, engage mitotic process."
+            ]
+        },
+        "aerobic_respiration": {
+            "label": "Aerobic Respiration",
+            "instructions": [
+            	"Oxygen available, engage aerobic respiration.",
+                "Insufficient oxygen, revert to anaerobic respiration."
+            ]
+        },
+		"inhibition": {
+            "label": "Inhibition",
+            "instructions": [
+            	"Presynaptic GABA-ergic neuron fired, enter inhibited state."
+            ]
+        },
+        "excitation": {
+            "label": "Excitation",
+            "instructions": [
+            	"Acetylcholine accepted by incoming synapse, enter excitory state."
+            ]
+        },
+
+        "glucose_pump": {
+            "label": "Glucose Pump",
+            "instructions": [
+            	"Glucose available in interstitial space, engage glucose pump."
+            ]
+        },
+        "chemoreceptors": {
+            "label": "Activate Chemoreceptors",
+            "instructions": [
+            	"Olfactory signal inbound, activate chemoreceptors."
+            ]
+        }
 	}
 }

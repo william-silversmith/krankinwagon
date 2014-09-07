@@ -15,7 +15,6 @@ function World () {
 			session: "end",
 			health: 50,
 			players: {},
-			ttl: 3000,
 			controls: JSON.parse(fs.readFileSync('./controls.json', { encoding: 'utf8' })),
 			outstanding: {},
 

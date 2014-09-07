@@ -72,8 +72,10 @@ function Player (args) {
 		var random_command_id = Utils.random_choice(Object.keys(controls));
 		_this.world.state.outstanding[random_command_id] = _this;
 
+		var instruction = Utils.random_choice(controls[random_command_id].instructions);
+
 		_this.send('command', {
-			text: "Ipsum lorem sit amet conseucutor dolor.",
+			text: instruction,
 			ttl: _this.world.state.COMMAND_TTL,
 		});
 
