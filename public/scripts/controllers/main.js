@@ -11,7 +11,7 @@
 (function (undefined) {
 
 angular.module('krankinwagonApp')
-  .controller('MainCtrl', function ($scope, angSocket, $interval, flash) {
+  .controller('MainCtrl', function ($scope, angSocket, $interval, flash, $timeout) {
     $scope.command = {};
     $scope.health = 100;
     $scope.timeLeft = 5000;
@@ -20,7 +20,12 @@ angular.module('krankinwagonApp')
     angSocket.forward('command');
     $scope.$on('socket:command', function (ev, data){
       console.log(data);
-      $scope.instruction = data.text;
+      $scope.instruction = '';
+      var command = data.text.split(', ');
+      $scope.reason = command[0];
+      $timeout(function () {
+        $scope.instruction = command[1];
+      }, 1500);
       $scope.timeLeft = data.ttl;
       $scope.totalTTL = data.ttl;
     });

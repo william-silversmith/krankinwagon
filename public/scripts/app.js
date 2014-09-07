@@ -33,4 +33,10 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .run(function() {
+      FastClick.attach(document.body);
+      document.ontouchmove = function(event){
+        event.preventDefault();
+      }
+  })
