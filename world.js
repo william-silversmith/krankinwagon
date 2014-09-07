@@ -56,6 +56,7 @@ function World () {
 
 	_this.startGame = function () {
 		if (_this.state.session === 'start') {
+			console.log("Game was already started.");
 			return;
 		}
 
@@ -83,6 +84,7 @@ function World () {
 
 	_this.endGame = function () {
 		if (_this.state.session === 'end') {
+			console.log("Game was already ended.");
 			return;
 		}
 
