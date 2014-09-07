@@ -65,4 +65,9 @@ angular.module('krankinwagonApp')
     $scope.$on('socket:health', function (ev, data) {
       $scope.health = data;
     });
+
+    angSocket.forward('connected');
+    $scope.$on('socket:connected', function (ev, data) {
+      $scope.connected = data;
+    });
   });

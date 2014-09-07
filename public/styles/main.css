@@ -119,6 +119,11 @@ ol, ul
 }
 
 
+#health,
+#connected {
+    color: white;
+}
+
 /*
 .button {
     display: inline-block;

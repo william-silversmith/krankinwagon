@@ -33,7 +33,10 @@ function Player (args) {
 
 			var player = _this.world.state.outstanding[control_id];
 			player.resetPlayerCommandState();
-			player.issueRandomCommand();
+
+			if (_this.world.state.session === 'start') {
+				player.issueRandomCommand();
+			}
 		}
 		else {
 			_this.world.setHealthIncr(-1);
