@@ -30,6 +30,7 @@ angular.module('krankinwagonApp')
 
     angSocket.forward('set-control');
     $scope.$on('socket:set-control', function (ev, data) {
+      console.log(data);
       $scope.controls = data.controls;
     });
 
