@@ -18,7 +18,7 @@ function World () {
 			ttl: 3000,
 			controls: JSON.parse(fs.readFileSync('./controls.json', { encoding: 'utf8' })),
 
-			MINPLAYERS: 3,
+			MINPLAYERS: 1,
 			CONTROLS_PER_PLAYER: 6,
 		};
 

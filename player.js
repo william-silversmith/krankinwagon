@@ -1,5 +1,7 @@
 "use strict";
 
+var Utils = require('./utils.js');
+
 function Player (args) {
 	args = args || {};
 
