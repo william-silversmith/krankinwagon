@@ -21,6 +21,7 @@ var world = new World();
 
 app.io.on('connection', function (socket) {
     world.addPlayer(socket);
+    world.broadcast('connected', world.numPlayersOnline());
 });
 
 module.exports = app;

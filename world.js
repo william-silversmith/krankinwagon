@@ -49,6 +49,7 @@ function World () {
 
 		socket.on('disconnect', function () {
 			delete _this.state[ip];
+			_this.broadcast('connected', _this.numPlayersOnline());
 			_this.endGame();
 		});
 	};
@@ -107,7 +108,6 @@ function World () {
 	function assignControls () {
 		var controls = JSON.parse(JSON.stringify(_this.state.controls));
 		var keys = Object.keys(controls);
-
 
 		_this.state.assigned_controls = {};
 		// Randomly assign controls

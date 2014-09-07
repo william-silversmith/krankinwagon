@@ -46,7 +46,8 @@ ol, ul
     background-color: #1f2227;
     width: 320px;
     height: 562px;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
 #userPicture {
