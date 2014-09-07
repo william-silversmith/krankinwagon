@@ -1,22 +1,20 @@
 <div id="pageWrapper" class='untouchable'>
-        <div id="userSection">
-            <div ng-click="startSession()" id="userPicture"></div>
-            <div id="userCommand">{{reason}}<span ng-show="instruction">, </span><strong>{{instruction}}</strong></div>
-            <div id="health">Health: {{health}}</div>
-            <div id="connected">Online: {{connected}}</div>
-            <div ng-style="{'width':(timeLeft / totalTTL * 100) +'%'}" id="userTimeLeft"></div>
-        </div>
-        <div id="actionSection">
-            <div ng-repeat="control in controls" class="untouchable action actionSmall" ng-click="fireAction(control)">
-                <div class="actionDescription">{{control.label}}</div>
-                <!--<div class="actionSwitch">
-                    <span class="button btnOn">ON</span><span class="button btnOff">OFF</span>
-                </div>-->
-            </div>
+    <div id="userSection">
+        <div ng-click="startSession()" id="userPicture"></div>
+        <div id="userCommand">{{reason}}<span ng-show="instruction">, </span><strong>{{instruction}}</strong></div>
+        <div ng-style="{'width':(timeLeft / totalTTL * 100) +'%'}" id="userTimeLeft"></div>
+    </div>
+    <div id="actionSection">
+        <div ng-repeat="control in controls" class="untouchable action actionSmall" ng-click="fireAction(control)">
+            <div class="actionDescription">{{control.label}}</div>
+            <!--<div class="actionSwitch">
+                <span class="button btnOn">ON</span><span class="button btnOff">OFF</span>
+            </div>-->
         </div>
     </div>
+</div>
 <!-- Subscribe to error flash messages. -->
-<div flash-alert="error" active-class="in" class="alert fade">
-    <strong class="alert-heading">Boo!</strong>
+<!-- <div flash-alert="error" active-class="in" class="alert fade">
     <span class="alert-message">{{flash.message}}</span>
 </div>
+ -->

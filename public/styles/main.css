@@ -43,26 +43,26 @@ ol, ul
 
 /************************************************/
 
-#pageWrapper {
+.view {
     background-color: #1f2227;
-    width: 320px;
-    height: 562px;
+    width: 100%;
+    height: 568px;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
 
 #userPicture {
     background-image: url("../images/neuron.jpg");
-    height: 180px;
-    width: 320px;
+    height: 100px;
+    width: 100%;
 
 }
 
 #userCommand {
-    height: 83px;
+    height: 95px;
     color: #ccc;
-    margin-top: 8px;
-    margin-left: 8px;
+    padding: 8px;
+    font-size: 18px;
 }
 
 #userTimeLeft {
@@ -70,13 +70,16 @@ ol, ul
     height: 10px;
 }
 
-
+#actionSection {
+  height: auto;
+}
 
 .action {
-    width: 158px;
+    width: 50%;
     border-right: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
     float: right;
+    height: 182px;
 }
 
 .action:active {
@@ -86,18 +89,12 @@ ol, ul
     transition: color 0.2s, background-color 0.2s;   
 }
 
+.action:nth-child(odd) {
+  border-right: 0px;
+}
+
 .actionSwitch {
     padding-left: 5px;
-}
-
-
-.actionSmall {
-    height: 140px;
-}
-
-.actionBig {
-
-    height: 281px; /*+1 for border*/
 }
 
 .actionDescription {
