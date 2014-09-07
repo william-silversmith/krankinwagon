@@ -17,14 +17,25 @@ function World () {
 			players: {},
 			ttl: 3000,
 			controls: JSON.parse(fs.readFileSync('./controls.json', { encoding: 'utf8' })),
+			outstanding: {},
 
 			MINPLAYERS: 1,
 			CONTROLS_PER_PLAYER: 6,
+			COMMAND_TTL: 5000,
+
+			HEALTH_TIMEOUT_PENALTY: -10,
+			HEALTH_BONUS: 5,
 		};
 
 		state.controls = state.controls.unified;
 		return state;
 	}
+
+	_this.setHealthIncr = function (incr) {
+		var val = _this.state.health + incr;
+		_this.state.health = Utils.clamp(val, 0, 100);
+		_this.broadcast('health', _this.state.health);
+	};
 
 	_this.addPlayer = function (socket) {
 		var player = new Player({
@@ -54,6 +65,10 @@ function World () {
 		_this.broadcast('lifecycle', 'start');
 
 		assignControls();
+
+		_this.broadcast('health', _this.state.health);
+
+		issueInitialCommands();
 	};
 
 	_this.endGame = function () {
@@ -72,6 +87,12 @@ function World () {
 
 	_this.numPlayersOnline = function () {
 		return Object.keys(_this.state.players).length;
+	};
+
+	function issueInitialCommands () {
+		Utils.forEach(_this.state.players, function (ip, player) {
+			player.issueRandomCommand();
+		});
 	};
 
 	function assignControls () {

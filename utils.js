@@ -36,7 +36,7 @@ module.exports.arrayToHashKeys = function (array) {
 
 module.exports.forEach = function (hash, fn) {
 	hash = hash || {};
-	
+
 	var keys = Object.keys(hash);
 	keys.sort();
 
@@ -206,7 +206,11 @@ module.exports.unique = function (list) {
 	return order;
 };
 
-/* cutoff
+module.exports.clone = function (obj) {
+	return JSON.parse(JSON.stringify(obj));
+};
+
+/* clamp
  *
  * Bound a value between a minimum and maximum value.
  *
@@ -217,7 +221,7 @@ module.exports.unique = function (list) {
  * 
  * Returns: value if value in [min,max], min if less, max if more
  */
-module.exports.cutoff = function (value, min, max) {
+module.exports.clamp = function (value, min, max) {
 	return Math.max(Math.min(value, max), min);
 };
 
