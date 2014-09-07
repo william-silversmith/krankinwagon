@@ -8,16 +8,16 @@
  * Controller of the krankinwagonApp
  */
 angular.module('krankinwagonApp')
-  .controller('MainCtrl', function ($scope, angSocket, $interval) {
+  .controller('MainCtrl', function ($scope, angSocket, $interval, flash) {
     $scope.command = {};
     $scope.health = 100;
     $scope.timeLeft = 100;
-    $scope.controls = {};
+    $scope.controls = [];
 
     angSocket.forward('command');
     $scope.$on('socket:command', function (ev, data){
-      $scope.command = data;
-      $scope.timeLeft = 100;
+      $scope.command = data.text;
+      $scope.timeLeft = data.ttl;
     });
 
     $scope.toggleControl = function (id) {
@@ -28,15 +28,14 @@ angular.module('krankinwagonApp')
       angSocket.emit('control', controlEvent);
     }
 
-    angSocket.forward('set-control');
-    $scope.$on('socket:set-control', function (ev, data) {
+    angSocket.forward('set-controls');
+    $scope.$on('socket:set-controls', function (ev, data) {
       console.log(data);
-      $scope.controls = data.controls;
+      $scope.controls = data;
     });
 
     angSocket.forward('lifecycle');
     $scope.$on('socket:lifecycle', function (ev, data) {
-      console.log(data);
       $scope.lifecycle = data;
       if (data == 'start') {
         $scope.health = 100;
@@ -45,7 +44,7 @@ angular.module('krankinwagonApp')
 
     angSocket.forward('alert');
     $scope.$on('socket:alert', function (ev, data) {
-      $scope.alert = data.text;
+      flash.error = data.text;
       console.log(data);
     });
 

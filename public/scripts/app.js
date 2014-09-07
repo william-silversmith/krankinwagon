@@ -16,7 +16,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'btford.socket-io'
+    'btford.socket-io',
+    'angular-flash.service',
+    'angular-flash.flash-alert-directive'
   ])
   .config(function ($routeProvider) {
     $routeProvider
