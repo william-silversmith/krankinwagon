@@ -41,7 +41,7 @@ function Player (args) {
 		if (_this.world.state.outstanding[control_id]) {
 			_this.world.setHealthIncr(_this.world.state.HEALTH_BONUS);
 
-			_this.send('player-action-reponse', {
+			_this.send('player-action-response', {
 				id: control_id,
 				status: 'correct',
 			});
@@ -55,7 +55,7 @@ function Player (args) {
 		}
 		else {
 			_this.world.setHealthIncr(-1);
-			_this.send('player-action-reponse', {
+			_this.send('player-action-response', {
 				id: control_id,
 				status: 'incorrect',
 			});
