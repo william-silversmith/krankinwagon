@@ -35,6 +35,10 @@ function Player (args) {
 	});
 
 	_this.socket.on('player-action', function (args) {
+		if (_this.world.state.session === 'end') {
+			return;
+		}
+
 		var control_id = args.id;
 		var value = args.value;
 
@@ -46,7 +50,12 @@ function Player (args) {
 				status: 'correct',
 			});
 
+
 			var player = _this.world.state.outstanding[control_id];
+			if (!player) {
+				return;
+			}
+
 			player.resetPlayerCommandState();
 
 			if (_this.world.state.session === 'start') {
