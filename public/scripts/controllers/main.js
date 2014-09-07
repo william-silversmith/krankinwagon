@@ -12,12 +12,15 @@
 
 angular.module('krankinwagonApp')
   .controller('MainCtrl', function ($scope, angSocket, $interval, flash, $timeout) {
-
+     var winAudio = document.getElementById('win'); 
+    var loseAudio = document.getElementById('lose');
+    var correctAudio = document.getElementById('correct');
+    var incorrectAudio = document.getElementById('incorrect');
     $scope.$watch('health', function () {
       if ($scope.health >= 100) {
-        new Audio('audio/win.ogg').play();
+        winAudio.play();
       } else if ($scope.health <= 0) {
-        new Audio('audio/lose.ogg').play();
+        loseAudio.play();
       }
     });
 
@@ -41,9 +44,9 @@ angular.module('krankinwagonApp')
       console.log(data);
       var feedback = data.status;
       if (feedback == 'correct') {
-        new Audio('audio/correct.ogg').play();
+        correctAudio.play();
       } else if (feedback == 'incorrect') {
-        new Audio('audio/incorrect.ogg').play();
+        incorrectAudio.play();
       }
     });
 
