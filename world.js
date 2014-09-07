@@ -69,12 +69,20 @@ function World () {
 		_this.broadcast('health', _this.state.health);
 
 		issueInitialCommands();
+
+		setTimeout(function () {
+			_this.endGame();
+		}, 30000);
 	};
 
 	_this.endGame = function () {
 		var players = _this.state.players;
 		_this.state = resetState();
 		_this.state.players = players;
+
+		Utils.forEach(players, function (ip, player) {
+			player.resetPlayerCommandState();
+		});
 
 		_this.broadcast('lifecycle', 'stop');
 	};
