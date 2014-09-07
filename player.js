@@ -41,6 +41,11 @@ function Player (args) {
 		if (_this.world.state.outstanding[control_id]) {
 			_this.world.setHealthIncr(_this.world.state.HEALTH_BONUS);
 
+			_this.send('player-action-reponse', {
+				id: control_id,
+				status: 'correct',
+			});
+
 			var player = _this.world.state.outstanding[control_id];
 			player.resetPlayerCommandState();
 
@@ -50,7 +55,10 @@ function Player (args) {
 		}
 		else {
 			_this.world.setHealthIncr(-1);
-			_this.send('incorrect', 'omg');
+			_this.send('player-action-reponse', {
+				id: control_id,
+				status: 'incorrect',
+			});
 		}
 	});
 
