@@ -16,13 +16,6 @@ angular.module('krankinwagonApp')
     var loseAudio = document.getElementById('lose');
     var correctAudio = document.getElementById('correct');
     var incorrectAudio = document.getElementById('incorrect');
-    $scope.$watch('health', function () {
-      if ($scope.health >= 100) {
-        winAudio.play();
-      } else if ($scope.health <= 0) {
-        loseAudio.play();
-      }
-    });
 
     var hinttimer_promise;
     angSocket.forward('command');
@@ -99,6 +92,18 @@ angular.module('krankinwagonApp')
       $scope.connected = data;
     });
 
+    angSocket.forward('outcome');
+    $scope.$on('socket:outcome', function (ev, data) {
+      $scope.outcome = data;
+
+      if (data === 'win') {
+        winAudio.play();
+      }
+      else if (data === 'loss') {
+        loseAudio.play();
+      }
+    });
+
     var runtimer_promise;
     function runTimer() {
       runtimer_promise = $interval(function () {
@@ -123,6 +128,8 @@ angular.module('krankinwagonApp')
 
       $scope.instruction = "";
       $scope.reason = "";
+      
+      $scope.outcome = null;
     }
 
     (function init () {

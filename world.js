@@ -36,6 +36,15 @@ function World () {
 		var val = _this.state.health + incr;
 		_this.state.health = Utils.clamp(val, 0, 100);
 		_this.broadcast('health', _this.state.health);
+
+		if (_this.state.health <= 0) {
+			_this.broadcast('outcome', 'loss');
+			_this.endGame();
+		}
+		else if (_this.state.health >= 100) {
+			_this.broadcast('outcome', 'win');
+			_this.endGame();
+		}
 	};
 
 	_this.addPlayer = function (socket) {
@@ -76,10 +85,6 @@ function World () {
 		_this.broadcast('health', _this.state.health);
 
 		issueInitialCommands();
-
-		setTimeout(function () {
-			_this.endGame();
-		}, 30000);
 
 		return true;
 	};
