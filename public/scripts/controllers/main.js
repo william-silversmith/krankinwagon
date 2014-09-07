@@ -13,9 +13,17 @@
 angular.module('krankinwagonApp')
   .controller('MainCtrl', function ($scope, angSocket, $interval, flash, $timeout) {
     $scope.command = {};
-    $scope.health = 100;
+    $scope.health = 50;
     $scope.timeLeft = 5000;
     $scope.controls = [];
+
+    $scope.$watch('health', function () {
+      if ($scope.health >= 100) {
+        new Audio('audio/win.ogg').play();
+      } else if ($scope.health <= 0) {
+        new Audio('audio/lose.ogg').play();
+      }
+    });
 
     angSocket.forward('command');
     $scope.$on('socket:command', function (ev, data){
@@ -28,6 +36,17 @@ angular.module('krankinwagonApp')
       }, 1500);
       $scope.timeLeft = data.ttl;
       $scope.totalTTL = data.ttl;
+    });
+
+    angSocket.forward('player-action-response');
+    $scope.$on('socket:player-action-response', function (ev, data) {
+      console.log(data);
+      var feedback = data.status;
+      if (feedback == 'correct') {
+        new Audio('audio/correct.ogg').play();
+      } else if (feedback == 'incorrect') {
+        new Audio('audio/incorrect.ogg').play();
+      }
     });
 
     $scope.fireAction = function (control) {

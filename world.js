@@ -48,7 +48,7 @@ function World () {
 		_this.state.players[ip] = player;
 
 		socket.on('disconnect', function () {
-			delete _this.state[ip];
+			delete _this.state.players[ip];
 			_this.broadcast('connected', _this.numPlayersOnline());
 			_this.endGame();
 		});
