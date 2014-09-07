@@ -38,9 +38,17 @@ angular.module('krankinwagonApp')
       $scope.totalTTL = data.ttl;
     });
 
+    angSocket.forward('player-action-response');
+    $scope.$on('socket:player-action-response', function (ev, data) {
+      var feedback = data.status;
+      if (feedback == 'correct') {
+        new Audio('audio/correct.ogg').play();
+      } else if (feedback == 'incorrect') {
+        new Audio('audio/incorrect.ogg').play();
+      }
+    });
+
     $scope.fireAction = function (control) {
-      var correct = new Audio('audio/correct.ogg')
-      correct.play();
       var controlEvent = {
         id: control.id,
         value: true
