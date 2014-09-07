@@ -1,6 +1,7 @@
 "use strict";
 
 var fs = require('fs');
+var extend = require('extend');
 
 var Player = require('./player.js');
 var Utils = require('./utils.js');
@@ -16,9 +17,10 @@ function World () {
 			health: 50,
 			players: {},
 			controls: JSON.parse(fs.readFileSync('./controls.json', { encoding: 'utf8' })),
+			assigned_controls: {},
 			outstanding: {},
 
-			MINPLAYERS: 2,
+			MINPLAYERS: 1,
 			CONTROLS_PER_PLAYER: 4,
 			COMMAND_TTL: 5000,
 
@@ -106,15 +108,22 @@ function World () {
 		var controls = JSON.parse(JSON.stringify(_this.state.controls));
 		var keys = Object.keys(controls);
 
+
+		_this.state.assigned_controls = {};
 		// Randomly assign controls
-		console.log(_this.state.players);
 		Utils.forEach(_this.state.players, function (ip, player) {
 
 			var player_controls = {};
 			for (var ct = 0; ct < _this.state.CONTROLS_PER_PLAYER; ct++) {
+				if (!keys.length) {
+					keys = Object.keys(controls);
+				}
+
 				var control_id = Utils.random_choice_no_replacement(keys);
 				var control = controls[control_id];
 				player_controls[control_id] = control.label;
+
+				_this.state.assigned_controls[control_id] = control;
 			}
 
 			player.setControls(player_controls);

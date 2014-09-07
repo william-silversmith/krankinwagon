@@ -63,8 +63,7 @@ function Player (args) {
 	_this.issueRandomCommand = function () {
 		_this.resetPlayerCommandState();
 
-		var controls = Utils.clone(_this.world.state.controls);
-
+		var controls = Utils.clone(_this.world.state.assigned_controls);
 		Utils.forEach(_this.world.state.outstanding, function (ctrl_id, player) {
 			delete controls[ctrl_id];
 		});
