@@ -50,11 +50,10 @@ function World () {
 			return;
 		}
 
-		assignControls();
-
 		_this.state.session = 'start';
-
 		_this.broadcast('lifecycle', 'start');
+
+		assignControls();
 	};
 
 	_this.endGame = function () {
@@ -85,10 +84,9 @@ function World () {
 			var player_controls = {};
 			for (var ct = 0; ct < _this.state.CONTROLS_PER_PLAYER; ct++) {
 				var control_id = Utils.random_choice_no_replacement(keys);
-				player_controls[control_id] = controls[control_id];
+				var control = controls[control_id];
+				player_controls[control_id] = control.label;
 			}
-
-			console.log(player_controls);
 
 			player.setControls(player_controls);
 		});

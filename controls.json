@@ -1,22 +1,76 @@
 {
 	"unified": {
-		"dna_translation": "Translate DNA",
-		"dna_transcription": "Transcribe DNA",
-		"rna_translation": "Translate RNA",
-		"rna_transcription": "Transcribe RNA",
-		"increase_fluid_intake": "Increase Fluid Intake",
-		"decrease_fluid_intake": "Decrease Fluid Intake",
-		"active_ion_channel": "Activate Ion Channel",
-		"deactive_ion_channel": "Deactivate Ion Channel",
-		"create_vesicle": "Create Vesicle",
-		"activate_krebs_cycle": "Activate Krebs Cycle",
-		"release_lysosomes": "Release Lysosomes",
-		"spike_neuron": "Spike Neuron",
-		"inhibit_neuron": "Inhibit Neuron",
-		"mitosis_on": "Mitosis On",
-		"mitosis_off": "Mitosis Off",
-		"glucose_pump_on": "Glucose Pump On",
-		"glucose_pump_off": "Glucose Pump Off",
-		"activate_chemoreceptors": "Activate Chemoreceptors"
+		"dna_translation": {
+			"label": "Translate DNA",
+			"instructions": []
+		},
+		"dna_transcription": {
+			"label": "Transcribe DNA",
+			"instructions": []
+		},
+		"rna_translation": {
+			"label": "Translate RNA",
+			"instructions": []
+		},
+		"rna_transcription": {
+				"label": "Transcribe RNA",
+				"instructions": []
+		},
+		"increase_fluid_intake": {
+				"label": "Increase Fluid Intake",
+				"instructions": []
+		},
+		"decrease_fluid_intake": {
+				"label": "Decrease Fluid Intake",
+				"instructions": []
+		},
+		"active_ion_channel": {
+				"label": "Activate Ion Channel",
+				"instructions": []
+		},
+		"deactive_ion_channel": {
+				"label": "Deactivate Ion Channel",
+				"instructions": []
+		},
+		"create_vesicle": {
+				"label": "Create Vesicle",
+				"instructions": []
+		},
+		"activate_krebs_cycle": {
+				"label": "Activate Krebs Cycle",
+				"instructions": []
+		},
+		"release_lysosomes": {
+				"label": "Release Lysosomes",
+				"instructions": []
+		},
+		"spike_neuron": {
+				"label": "Spike Neuron",
+				"instructions": []
+		},
+		"inhibit_neuron": {
+				"label": "Inhibit Neuron",
+				"instructions": []
+		},
+		"mitosis_on": {
+				"label": "Mitosis On",
+				"instructions": []
+		},
+		"mitosis_off": {
+				"label": "Mitosis Off",
+				"instructions": []
+		},
+		"glucose_pump_on": {
+				"label": "Glucose Pump On",
+				"instructions": []
+		},
+		"glucose_pump_off": {
+				"label": "Glucose Pump Off",
+				"instructions": []
+		},
+		"activate_chemoreceptors": {
+				"label": "Activate Chemoreceptors",
+				"instructions": []
+		}
 	}
 }

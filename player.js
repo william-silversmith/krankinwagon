@@ -20,6 +20,16 @@ function Player (args) {
 
 	_this.setControls = function (controls) {
 		_this.state.controls = controls;
+
+		var fmt = [];
+		Utils.forEach(controls, function (id, label)) {
+			fmt.push({
+				id: id,
+				label: label,
+			});
+		}
+
+		_this.send('set-controls', fmt);
 	};
 
 	_this.send = function (evt, payload) {
