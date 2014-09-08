@@ -10,7 +10,7 @@
         <div ng-style="{'width':(timeLeft / totalTTL * 100) +'%'}" id="userTimeLeft"></span></div>
     </div>
     <div id="actionSection">
-        <div ng-repeat="control in controls" class="untouchable action actionSmall" ng-click="fireAction(control)">
+        <div ng-repeat="control in controls" class="untouchable action actionSmall" ng-click="fireAction(control)" control-outcome>
           <div class="actionItemContainer">
             <div class="actionDescription">{{control.label}}</div>
             <img class="actionImage" ng-src="images/{{control.id}}.png">

@@ -34,7 +34,7 @@ footer, header, hgroup, menu, nav, section
 body
 {
   line-height: 1.15;
-  background-color: #F7F7F7;
+  background-color: #F1EDE2;
 }
 
 ol, ul
@@ -50,6 +50,7 @@ ol, ul
     height: 568px;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    background-color: #F1EDE2;
 }
 
 .logo {
@@ -123,10 +124,24 @@ ol, ul
 }
 
 .action:active {
-    background-color: #F20233;
+    background-color: #073D63;
     color: #F1EDE2;
     -webkit-transition: color 0.2s, background-color 0.2s;
     transition: color 0.2s, background-color 0.2s;   
+}
+
+.action.correct {
+  background-color: #00AA9A;
+  color: #F1EDE2;
+  -webkit-transition: color 0.2s, background-color 0.2s;
+  transition: color 0.2s, background-color 0.2s; 
+}
+
+.action.incorrect {
+  background-color: #F20233;
+  color: #F1EDE2;
+  -webkit-transition: color 0.2s, background-color 0.2s;
+  transition: color 0.2s, background-color 0.2s;
 }
 
 .actionImage {
@@ -184,7 +199,7 @@ ol, ul
 #startbutton { 
     width: 100%;
     min-height: 150px;
-    color: white;
+    color: #F1EDE2;
     font-size: 3em;
     font-weight: bold;
     text-align: center;
@@ -202,7 +217,6 @@ ol, ul
     font-size: 12px;
     width: 100%;
     text-align: center;
-    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,6 +233,7 @@ ol, ul
     width: 100%;
     text-align: center;
     padding: 10px;
+    margin-bottom: 25px;
 }
 
 table {
