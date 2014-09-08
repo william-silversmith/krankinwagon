@@ -52,6 +52,12 @@ ol, ul
     font-weight: 300;
 }
 
+.logo {
+  width: 45%;
+  margin-left: 28%;
+  margin-top: 20px;
+}
+
 #userPicture {
   height: 100px;
   width: 100%;
@@ -225,7 +231,7 @@ table td {
 }
 
 .bg-blue {
-    background-color: #2A84A7;
+    background-color: #073D63;
 }
 
 .bg-teal {
