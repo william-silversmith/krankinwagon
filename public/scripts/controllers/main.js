@@ -107,7 +107,6 @@ angular.module('krankinwagonApp')
 
     var runtimer_promise;
     function runTimer() {
-      return
       if (runtimer_promise) {
         $interval.cancel(runtimer_promise);
       }
