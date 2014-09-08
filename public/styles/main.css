@@ -44,7 +44,7 @@ ol, ul
 /************************************************/
 
 .view {
-    background-color: #1f2227;
+    background-color: #F1EDE2;
     width: 100%;
     height: 568px;
     font-family: 'Roboto', sans-serif;
@@ -52,22 +52,31 @@ ol, ul
 }
 
 #userPicture {
-    background-image: url("../images/neuron.jpg");
-    height: 100px;
-    width: 100%;
+  height: 100px;
+  width: 100%;
+  background-color: #FD6824;
 
 }
 
 #userCommand {
     height: 95px;
     color: #ccc;
-    padding: 8px;
     font-size: 18px;
+    padding: 0px 10px 0px 10px;
+    line-height: 95px;
+    text-align: center;
+}
+
+.commandText {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  color: #073D63;
 }
 
 #userTimeLeft {
-    background-color: #44BF87;
     height: 10px;
+    background-color: #00AA9A;
 }
 
 #actionSection {
@@ -76,15 +85,18 @@ ol, ul
 
 .action {
     width: 50%;
-    border-right: 1px solid #cccccc;
-    border-top: 1px solid #cccccc;
+    border-right: 1px solid #00AA9A;
+    border-top: 1px solid #00AA9A;
     float: right;
     height: 182px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .action:active {
-    background-color: #F29A3F;
-    color: #1f2227;
+    background-color: #F20233;
+    color: #F1EDE2;
     -webkit-transition: color 0.2s, background-color 0.2s;
     transition: color 0.2s, background-color 0.2s;   
 }
@@ -98,10 +110,8 @@ ol, ul
 }
 
 .actionDescription {
-    height: 50px;
     text-align: center;
-    margin-top: 60px;
-    color: #cccccc;
+    color: #073D63;
 }
 
 .actionBig > .actionDescription {
