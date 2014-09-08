@@ -1,16 +1,12 @@
 <div id="pageWrapper" class='untouchable'>
-    <div id="">Start Playing</div>
-    <div id="actionSection">
-        <div ng-repeat="control in controls" class="untouchable action actionSmall" ng-click="fireAction(control)">
-            <div class="actionDescription">{{control.label}}</div>
-            <!--<div class="actionSwitch">
-                <span class="button btnOn">ON</span><span class="button btnOff">OFF</span>
-            </div>-->
-        </div>
+
+    <div id="tagline">
+        Brain Blast, Learn by Yelling
     </div>
-</div>
-<!-- Subscribe to error flash messages. -->
-<div flash-alert="error" active-class="in" class="alert fade">
-    <strong class="alert-heading">Boo!</strong>
-    <span class="alert-message">{{flash.message}}</span>
+      <div id="startbutton" class="bg-blue">
+        Start Playing
+    </div>
+    <div id="numonline">
+        <img class="person" src="/images/person.svg" ng-repeat="n in [] | range:connected" class="person" />
+    </div>
 </div>
