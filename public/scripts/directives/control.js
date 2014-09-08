@@ -11,7 +11,7 @@ angular.module('krankinwagonApp')
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
-        console.log(element);
+        
         angSocket.forward('player-action-response');
         scope.$on('socket:player-action-response', function (ev, data) {
         	var feedback = data.status;
