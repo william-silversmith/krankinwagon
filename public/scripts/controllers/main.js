@@ -66,7 +66,7 @@ angular.module('krankinwagonApp')
       }
       else if (data === 'stop') {
         resetGame();
-        $location.path('/');
+        //$location.path('/');
       }
     });
 
