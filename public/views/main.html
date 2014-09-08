@@ -11,7 +11,10 @@
     </div>
     <div id="actionSection">
         <div ng-repeat="control in controls" class="untouchable action actionSmall" ng-click="fireAction(control)">
+          <div class="actionItemContainer">
             <div class="actionDescription">{{control.label}}</div>
+            <img class="actionImage" ng-src="images/{{control.id}}.png">
+          </div>
             <!--<div class="actionSwitch">
                 <span class="button btnOn">ON</span><span class="button btnOff">OFF</span>
             </div>-->

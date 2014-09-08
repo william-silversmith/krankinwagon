@@ -113,6 +113,7 @@ ol, ul
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 10px;
 }
 
 .action:active {
@@ -120,6 +121,11 @@ ol, ul
     color: #F1EDE2;
     -webkit-transition: color 0.2s, background-color 0.2s;
     transition: color 0.2s, background-color 0.2s;   
+}
+
+.actionImage {
+  width: 80px;
+  margin-top: 18px;
 }
 
 .action:nth-child(odd) {
@@ -133,6 +139,7 @@ ol, ul
 .actionDescription {
     text-align: center;
     color: #073D63;
+    font-size: 16px;
 }
 
 .actionBig > .actionDescription {

@@ -12,7 +12,7 @@
 
 angular.module('krankinwagonApp')
   .controller('MainCtrl', function ($scope, $location, angSocket, $interval, flash, $timeout) {
-     var winAudio = document.getElementById('win'); 
+    var winAudio = document.getElementById('win'); 
     var loseAudio = document.getElementById('lose');
     var correctAudio = document.getElementById('correct');
     var incorrectAudio = document.getElementById('incorrect');
