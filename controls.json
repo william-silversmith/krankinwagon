@@ -1,13 +1,13 @@
 {
     "unified": {
-        "dna_translation": {
-            "label": "DNA Translation",
+        "dna_transcription": {
+            "label": "DNA Transcription",
             "instructions": [
                 "Produce mRNA for membrane proteins, start DNA transcription.",
                 "mRNA quantity achieved, stop DNA transcription."
             ]
         },
-        "dna_transcription": {
+        "dna_translation": {
             "label": "DNA Translation",
             "instructions": [
                 "Need to generate more neurotransmitter proteins from mRNA, start DNA translation.",
