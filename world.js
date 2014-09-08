@@ -22,10 +22,11 @@ function World () {
 
 			MINPLAYERS: 1,
 			CONTROLS_PER_PLAYER: 4,
-			COMMAND_TTL: 15000,
+			COMMAND_TTL: 10000,
 
-			HEALTH_TIMEOUT_PENALTY: -10,
-			HEALTH_BONUS: 5,
+			HEALTH_INCORRECT_PENALTY: -2,
+			HEALTH_TIMEOUT_PENALTY: -5,
+			HEALTH_BONUS: 10,
 		};
 
 		state.controls = state.controls.unified;

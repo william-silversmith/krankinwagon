@@ -66,7 +66,7 @@ function Player (args) {
 			}
 		}
 		else {
-			_this.world.setHealthIncr(-1);
+			_this.world.setHealthIncr(_this.world.state.HEALTH_INCORRECT_PENALTY);
 			_this.send('player-action-response', {
 				id: control_id,
 				status: 'incorrect',
