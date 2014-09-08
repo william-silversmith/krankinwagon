@@ -35,10 +35,12 @@ angular
       });
   })
   .run(function() {
+      var loopAudio = document.getElementById('loop'); 
       FastClick.attach(document.body);
       document.ontouchmove = function(event){
         event.preventDefault();
       }
+      loopAudio.play();
   })
   .filter('range', function() {
     return function(val, range) {
