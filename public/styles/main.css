@@ -126,6 +126,9 @@ ol, ul
 .actionImage {
   width: 80px;
   margin-top: 18px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .action:nth-child(odd) {
