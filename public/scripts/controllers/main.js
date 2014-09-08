@@ -11,7 +11,7 @@
 (function (undefined) {
 
 angular.module('krankinwagonApp')
-  .controller('MainCtrl', function ($scope, angSocket, $interval, flash, $timeout) {
+  .controller('MainCtrl', function ($scope, $location, angSocket, $interval, flash, $timeout) {
      var winAudio = document.getElementById('win'); 
     var loseAudio = document.getElementById('lose');
     var correctAudio = document.getElementById('correct');
@@ -69,6 +69,7 @@ angular.module('krankinwagonApp')
       }
       else if (data === 'stop') {
         resetGame();
+        $location.path('/');
       }
     });
 
@@ -106,6 +107,10 @@ angular.module('krankinwagonApp')
 
     var runtimer_promise;
     function runTimer() {
+      if (runtimer_promise) {
+        $interval.cancel(runtimer_promise);
+      }
+
       runtimer_promise = $interval(function () {
         if ($scope.timeLeft > 0) {
             $scope.timeLeft = $scope.timeLeft - 50;
@@ -134,6 +139,10 @@ angular.module('krankinwagonApp')
 
     (function init () {
       resetGame();  
+
+      setTimeout(function () {
+        angSocket.emit('lifecycle', 'start');
+      }, 500);
     })();
   });
 

@@ -26,6 +26,9 @@ function Player (args) {
 			ok = _this.world.endGame();
 			text = "The game was already stopped.";
 		}
+		else if (stage === 'enter') {
+			_this.world.broadcast('lifecycle', 'enter');
+		}
 
 		if (!ok) {
 			_this.send('alert', {

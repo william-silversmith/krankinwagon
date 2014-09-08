@@ -1,0 +1,12 @@
+<div id="pageWrapper" class='untouchable'>
+
+    <div id="tagline">
+        Brain Blast, Learn by Yelling
+    </div>
+      <div ng-click="startPlaying()" id="startbutton" class="bg-blue">
+        Start Playing
+    </div>
+    <div id="numonline">
+        <img class="person" src="/images/person.svg" ng-repeat="n in [] | range:connected" class="person" />
+    </div>
+</div>

@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section
 body
 {
   line-height: 1.15;
+  background-color: #F7F7F7;
 }
 
 ol, ul
@@ -44,7 +45,7 @@ ol, ul
 /************************************************/
 
 .view {
-    background-color: #F1EDE2;
+    color: rgb(65, 65, 65);
     width: 100%;
     height: 568px;
     font-family: 'Roboto', sans-serif;
@@ -142,6 +143,79 @@ ol, ul
     -moz-user-select: none !important;
     -ms-user-select: none !important;
     user-select: none !important;
+}
+
+#startbutton { 
+    width: 100%;
+    min-height: 150px;
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 40px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+
+#startbutton:hover {
+    background-color: #44BF87;
+}
+
+#numonline {
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.person {
+    width: 100px;
+    margin-right: -20px;
+    margin-left: -20px;
+    margin-top: -10px;
+}
+
+#tagline {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+}
+
+table td {
+    width: 50%;
+    height: 70px;
+}
+
+.bg-blue {
+    background-color: #2A84A7;
+}
+
+.bg-teal {
+    background-color: #1D8281;
+}
+
+.bg-green {
+    background-color: #44BF87;
+}
+
+.bg-yellow {
+    background-color: #FBD258;
+}
+
+.bg-orange {
+    background-color: #F29A3F;    
+}
+
+.bg-red {
+    background-color: #DB634F;    
 }
 
 /*
